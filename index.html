@@ -10,105 +10,97 @@
         <h1>My ePortfolio</h1>
         <nav>
             <ul>
-                <li><a href="#welcome">Welcome</a></li>
-                <li class="dropdown">
-                    <a href="#engineering">Engineering Course</a>
-                    <ul class="submenu">
-                        <li><a href="#projects">Projects</a></li>
-                        <li><a href="#productions">Productions</a></li>
-                    </ul>
-                </li>
-                <li class="dropdown">
-                    <a href="#international">International Mobility</a>
-                    <ul class="submenu">
-                        <li><a href="#pce">PCE</a></li>
-                        <li><a href="#lv2">LV2</a></li>
-                    </ul>
-                </li>
-                <li><a href="#sustainability">Sustainability & Civic Engagement</a></li>
-                <li><a href="#activities">Sport & Other Activities</a></li>
-                <li class="dropdown">
-                    <a href="#career">Career Development</a>
-                    <ul class="submenu">
-                        <li><a href="#internships">Internships</a></li>
-                        <li><a href="#pep">PEP</a></li>
-                    </ul>
-                </li>
+                <li><a href="#" class="tab-link active" data-tab="welcome">Welcome</a></li>
+                <li><a href="#" class="tab-link" data-tab="engineering">Engineering Course</a></li>
+                <li><a href="#" class="tab-link" data-tab="international">International Mobility</a></li>
+                <li><a href="#" class="tab-link" data-tab="sustainability">Sustainability & Civic Engagement</a></li>
+                <li><a href="#" class="tab-link" data-tab="activities">Sport & Other Activities</a></li>
+                <li><a href="#" class="tab-link" data-tab="career">Career Development</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
         <!-- Welcome Section -->
-        <section id="welcome">
-            <h2>Welcome</h2>
-            <p>Welcome to my ePortfolio! Here you'll find information about my academic journey, projects, and more.</p>
+        <section id="welcome" class="tab-content active">
+            <div class="welcome-container">
+                <div class="welcome-text">
+                    <h2>Welcome</h2>
+                    <p>Welcome to my ePortfolio! Here you'll find information about my academic journey, projects, and more.</p>
+                </div>
+                <div class="welcome-photo">
+                    <img src="img/welcome_photo.jpg" alt="My Photo">
+                </div>
+            </div>
         </section>
 
         <!-- Engineering Course Section -->
-        <section id="engineering">
+        <section id="engineering" class="tab-content">
             <h2>Engineering Course</h2>
             <p>Details about my engineering studies.</p>
-
-            <!-- Projects Sub-Section -->
-            <section id="projects">
+            <!-- Sub-tabs -->
+            <div class="sub-tabs">
+                <button class="sub-tab-link" data-subtab="projects">Projects</button>
+                <button class="sub-tab-link" data-subtab="productions">Productions</button>
+            </div>
+            <div class="sub-tab-content" id="projects">
                 <h3>Projects</h3>
                 <p>Information about my projects.</p>
-            </section>
-
-            <!-- Productions Sub-Section -->
-            <section id="productions">
+            </div>
+            <div class="sub-tab-content" id="productions">
                 <h3>Productions</h3>
                 <p>Details of my productions.</p>
-            </section>
+            </div>
         </section>
 
         <!-- International Mobility Section -->
-        <section id="international">
+        <section id="international" class="tab-content">
             <h2>International Mobility</h2>
             <p>My experiences abroad.</p>
-
-            <!-- PCE Sub-Section -->
-            <section id="pce">
+            <!-- Sub-tabs -->
+            <div class="sub-tabs">
+                <button class="sub-tab-link" data-subtab="pce">PCE</button>
+                <button class="sub-tab-link" data-subtab="lv2">LV2</button>
+            </div>
+            <div class="sub-tab-content" id="pce">
                 <h3>PCE</h3>
                 <p>Details about PCE.</p>
-            </section>
-
-            <!-- LV2 Sub-Section -->
-            <section id="lv2">
+            </div>
+            <div class="sub-tab-content" id="lv2">
                 <h3>LV2</h3>
                 <p>Information about LV2.</p>
-            </section>
+            </div>
         </section>
 
         <!-- Sustainability & Civic Engagement Section -->
-        <section id="sustainability">
+        <section id="sustainability" class="tab-content">
             <h2>Sustainability & Civic Engagement</h2>
             <p>My contributions to sustainability and civic projects.</p>
         </section>
 
         <!-- Sport & Other Activities Section -->
-        <section id="activities">
+        <section id="activities" class="tab-content">
             <h2>Sport & Other Activities</h2>
             <p>My involvement in sports and other extracurricular activities.</p>
         </section>
 
         <!-- Career Development Section -->
-        <section id="career">
+        <section id="career" class="tab-content">
             <h2>Career Development</h2>
             <p>My career aspirations and development.</p>
-
-            <!-- Internships Sub-Section -->
-            <section id="internships">
+            <!-- Sub-tabs -->
+            <div class="sub-tabs">
+                <button class="sub-tab-link" data-subtab="internships">Internships</button>
+                <button class="sub-tab-link" data-subtab="pep">PEP</button>
+            </div>
+            <div class="sub-tab-content" id="internships">
                 <h3>Internships</h3>
                 <p>Details about my internships.</p>
-            </section>
-
-            <!-- PEP Sub-Section -->
-            <section id="pep">
+            </div>
+            <div class="sub-tab-content" id="pep">
                 <h3>PEP</h3>
                 <p>Information about PEP.</p>
-            </section>
+            </div>
         </section>
     </main>
 
