@@ -22,6 +22,11 @@ document.addEventListener('DOMContentLoaded', function() {
             // Add active class to clicked tab link and corresponding content
             this.classList.add('active');
             document.getElementById(tabId).classList.add('active');
+
+            // Close the mobile menu after selecting an option
+            if (window.innerWidth <= 768) {
+                navMenu.classList.remove('show');
+            }
         });
     });
 
@@ -48,10 +53,8 @@ document.addEventListener('DOMContentLoaded', function() {
             parentSection.querySelector('#' + subTabId).classList.add('active');
         });
     });
-});
 
-// Carousel functionality
-document.addEventListener('DOMContentLoaded', function() {
+    // Carousel functionality
     const carouselImages = document.querySelectorAll('.carousel-images img');
     const prevBtn = document.querySelector('.carousel-btn.prev');
     const nextBtn = document.querySelector('.carousel-btn.next');
@@ -66,16 +69,26 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    prevBtn.addEventListener('click', function() {
-        currentIndex = (currentIndex === 0) ? carouselImages.length - 1 : currentIndex - 1;
-        showImage(currentIndex);
-    });
+    if (prevBtn && nextBtn) {
+        prevBtn.addEventListener('click', function() {
+            currentIndex = (currentIndex === 0) ? carouselImages.length - 1 : currentIndex - 1;
+            showImage(currentIndex);
+        });
 
-    nextBtn.addEventListener('click', function() {
-        currentIndex = (currentIndex + 1) % carouselImages.length;
-        showImage(currentIndex);
-    });
+        nextBtn.addEventListener('click', function() {
+            currentIndex = (currentIndex + 1) % carouselImages.length;
+            showImage(currentIndex);
+        });
 
-    // Initialize carousel
-    showImage(currentIndex);
+        // Initialize carousel
+        showImage(currentIndex);
+    }
+
+    // Mobile Navigation Toggle
+    const navToggle = document.getElementById('navToggle');
+    const navMenu = document.getElementById('navMenu');
+
+    navToggle.addEventListener('click', function() {
+        navMenu.classList.toggle('show');
+    });
 });
