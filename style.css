@@ -186,17 +186,19 @@ main {
     position: relative;
     max-width: 600px;
     margin: 20px auto;
-    overflow: hidden; /* Pour éviter les débordements */
+    overflow: hidden; /* To prevent overflow */
+    background-color: #000; /* Optional: background color for better contrast */
 }
 
 .carousel-images {
     position: relative;
+    width: 100%;
+    height: auto;
 }
 
 .carousel-images img {
     width: 100%;
-    height: 400px; /* Hauteur fixe pour uniformiser les images */
-    object-fit: cover; /* Les images remplissent le conteneur sans déformation */
+    height: auto; /* Allows images to scale proportionally */
     display: none;
     transition: opacity 0.5s ease-in-out;
 }
@@ -212,12 +214,13 @@ main {
     border: none;
     cursor: pointer;
     transform: translateY(-50%);
-    border-radius: 50%; /* Boutons arrondis */
+    border-radius: 50%; /* Rounded buttons */
     width: 40px;
     height: 40px;
-    z-index: 10; /* S'assure que les boutons sont au-dessus des images */
+    z-index: 10;
 }
 
+/* Updated arrow styles to be more aesthetic */
 .carousel-btn::before {
     content: '';
     display: inline-block;
@@ -226,26 +229,38 @@ main {
     padding: 7px;
 }
 
-.carousel-btn.prev {
-    left: 15px;
-}
-
 .carousel-btn.prev::before {
     transform: rotate(135deg);
-    margin-left: 5px; /* Ajuste la position de la flèche */
+    margin-left: 5px; /* Adjusts the position of the arrow */
+}
+
+.carousel-btn.next::before {
+    transform: rotate(-45deg);
+    margin-right: 5px; /* Adjusts the position of the arrow */
+}
+
+.carousel-btn.prev {
+    left: 15px;
 }
 
 .carousel-btn.next {
     right: 15px;
 }
 
-.carousel-btn.next::before {
-    transform: rotate(-45deg);
-    margin-right: 5px; /* Ajuste la position de la flèche */
-}
-
 .carousel-btn:hover {
     background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Adjustments for mobile devices */
+@media (max-width: 768px) {
+    /* ... (existing responsive styles) ... */
+
+    /* Adjust carousel button sizes on mobile */
+    .carousel-btn {
+        width: 35px;
+        height: 35px;
+        padding: 10px;
+    }
 }
 
 
