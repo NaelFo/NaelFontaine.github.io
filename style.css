@@ -206,25 +206,49 @@ main {
 .carousel-btn {
     position: absolute;
     top: 50%;
-    background-color: rgba(0,0,0,0.5);
+    background-color: rgba(0, 0, 0, 0.5);
     color: #fff;
     border: none;
-    padding: 10px;
+    padding: 12px;
     cursor: pointer;
     transform: translateY(-50%);
+    border-radius: 50%; /* Makes the buttons rounded */
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    line-height: 16px;
+    font-size: 18px;
+}
+
+/* Updated arrow styles to be more aesthetic */
+.carousel-btn::before {
+    content: '';
+    display: inline-block;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    padding: 7px;
+}
+
+.carousel-btn.prev::before {
+    transform: rotate(135deg);
+}
+
+.carousel-btn.next::before {
+    transform: rotate(-45deg);
 }
 
 .carousel-btn.prev {
-    left: 10px;
+    left: 15px;
 }
 
 .carousel-btn.next {
-    right: 10px;
+    right: 15px;
 }
 
 .carousel-btn:hover {
-    background-color: rgba(0,0,0,0.8);
+    background-color: rgba(0, 0, 0, 0.8);
 }
+
 
 /* Footer Styles */
 footer {
@@ -310,6 +334,13 @@ footer {
     /* Adjust carousel */
     .carousel {
         max-width: 100%;
+    }
+
+    /* Adjust carousel button sizes on mobile */
+    .carousel-btn {
+        width: 35px;
+        height: 35px;
+        padding: 10px;
     }
 
     /* Adjust sub-tabs */
