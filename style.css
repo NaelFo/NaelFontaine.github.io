@@ -183,3 +183,23 @@ footer {
 .carousel-btn:hover {
     background-color: rgba(0,0,0,0.8);
 }
+
+/* Styles for Welcome Links */
+.welcome-links {
+    margin-top: 20px;
+}
+
+.welcome-links .btn {
+    display: inline-block;
+    background-color: #00695c; /* Matches the hover color of the nav */
+    color: #fff;
+    padding: 10px 20px;
+    margin-right: 10px;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.welcome-links .btn:hover {
+    background-color: #004d40; /* Darker green on hover */
+}
