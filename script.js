@@ -49,3 +49,33 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+
+// Carousel functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const carouselImages = document.querySelectorAll('.carousel-images img');
+    const prevBtn = document.querySelector('.carousel-btn.prev');
+    const nextBtn = document.querySelector('.carousel-btn.next');
+    let currentIndex = 0;
+
+    function showImage(index) {
+        carouselImages.forEach((img, i) => {
+            img.classList.remove('active');
+            if (i === index) {
+                img.classList.add('active');
+            }
+        });
+    }
+
+    prevBtn.addEventListener('click', function() {
+        currentIndex = (currentIndex === 0) ? carouselImages.length - 1 : currentIndex - 1;
+        showImage(currentIndex);
+    });
+
+    nextBtn.addEventListener('click', function() {
+        currentIndex = (currentIndex + 1) % carouselImages.length;
+        showImage(currentIndex);
+    });
+
+    // Initialize carousel
+    showImage(currentIndex);
+});
