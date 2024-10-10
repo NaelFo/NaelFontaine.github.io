@@ -184,7 +184,7 @@ main {
 /* Carousel Styles */
 .carousel {
     position: relative;
-    max-width: 600px;
+    max-width: 400px; /* Reduced max-width to make the carousel smaller */
     margin: 20px auto;
     overflow: hidden; /* To prevent overflow */
     background-color: #000; /* Optional: background color for better contrast */
@@ -345,9 +345,9 @@ footer {
         margin-top: 10px;
     }
 
-    /* Adjust carousel */
+    /* Adjust carousel size on mobile */
     .carousel {
-        max-width: 100%;
+        max-width: 100%; /* Allow carousel to take full width on mobile */
     }
 
     /* Adjust carousel button sizes on mobile */
