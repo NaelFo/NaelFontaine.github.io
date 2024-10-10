@@ -186,15 +186,17 @@ main {
     position: relative;
     max-width: 600px;
     margin: 20px auto;
+    overflow: hidden; /* Pour éviter les débordements */
 }
 
 .carousel-images {
     position: relative;
-    overflow: hidden;
 }
 
 .carousel-images img {
     width: 100%;
+    height: 400px; /* Hauteur fixe pour uniformiser les images */
+    object-fit: cover; /* Les images remplissent le conteneur sans déformation */
     display: none;
     transition: opacity 0.5s ease-in-out;
 }
@@ -207,20 +209,15 @@ main {
     position: absolute;
     top: 50%;
     background-color: rgba(0, 0, 0, 0.5);
-    color: #fff;
     border: none;
-    padding: 12px;
     cursor: pointer;
     transform: translateY(-50%);
-    border-radius: 50%; /* Makes the buttons rounded */
+    border-radius: 50%; /* Boutons arrondis */
     width: 40px;
     height: 40px;
-    text-align: center;
-    line-height: 16px;
-    font-size: 18px;
+    z-index: 10; /* S'assure que les boutons sont au-dessus des images */
 }
 
-/* Updated arrow styles to be more aesthetic */
 .carousel-btn::before {
     content: '';
     display: inline-block;
@@ -229,20 +226,22 @@ main {
     padding: 7px;
 }
 
-.carousel-btn.prev::before {
-    transform: rotate(135deg);
-}
-
-.carousel-btn.next::before {
-    transform: rotate(-45deg);
-}
-
 .carousel-btn.prev {
     left: 15px;
 }
 
+.carousel-btn.prev::before {
+    transform: rotate(135deg);
+    margin-left: 5px; /* Ajuste la position de la flèche */
+}
+
 .carousel-btn.next {
     right: 15px;
+}
+
+.carousel-btn.next::before {
+    transform: rotate(-45deg);
+    margin-right: 5px; /* Ajuste la position de la flèche */
 }
 
 .carousel-btn:hover {
