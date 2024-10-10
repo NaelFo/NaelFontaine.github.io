@@ -18,12 +18,13 @@ p {
 header {
     background-color: #004d40; /* Darker green */
     color: #fff;
-    padding: 20px 0;
+    padding: 10px 0;
 }
 
 header h1 {
     margin: 0;
     text-align: center;
+    font-size: 2em;
 }
 
 /* Navigation Styles */
@@ -99,20 +100,15 @@ main {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-}
-
-.welcome-text {
-    flex: 1;
-    min-width: 300px;
+    justify-content: center;
 }
 
 .welcome-photo {
-    flex: 1;
-    min-width: 300px;
+    flex: 0 0 250px;
     text-align: center;
     width: 250px;
     height: 250px;
-    margin: 0 auto;
+    margin: 20px;
     overflow: hidden;
     border-radius: 50%;
 }
@@ -121,6 +117,13 @@ main {
     width: 100%;
     height: 100%;
     object-fit: cover;
+}
+
+.welcome-text {
+    flex: 1;
+    min-width: 300px;
+    max-width: 600px;
+    margin: 20px;
 }
 
 /* Styles for Welcome Links */
@@ -146,6 +149,8 @@ main {
 /* Sub-tabs */
 .sub-tabs {
     margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .sub-tab-link {
@@ -153,7 +158,7 @@ main {
     border: none;
     padding: 10px 15px;
     cursor: pointer;
-    margin-right: 5px;
+    margin: 5px;
     transition: background-color 0.3s;
 }
 
@@ -222,7 +227,9 @@ footer {
     color: #fff;
     text-align: center;
     padding: 10px;
-    margin-top: 40px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
 }
 
 /* Responsive Styles */
@@ -266,12 +273,17 @@ footer {
     .welcome-container {
         flex-direction: column;
         align-items: center;
+        text-align: center;
     }
 
     .welcome-text,
     .welcome-photo {
         width: 100%;
-        text-align: center;
+        margin: 10px 0;
+    }
+
+    .welcome-photo {
+        order: -1; /* Move the photo above the text */
     }
 
     /* Adjust carousel */
@@ -282,6 +294,7 @@ footer {
     /* Adjust sub-tabs */
     .sub-tabs {
         flex-direction: column;
+        align-items: stretch;
     }
 
     .sub-tab-link {
