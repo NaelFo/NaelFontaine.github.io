@@ -4,6 +4,9 @@ body {
     margin: 0;
     background-color: #f4f4f4;
     color: #333;
+    min-height: 100vh; /* Added for sticky footer */
+    display: flex; /* Added for sticky footer */
+    flex-direction: column; /* Added for sticky footer */
 }
 
 h1, h2, h3 {
@@ -86,6 +89,7 @@ main {
     max-width: 1000px;
     margin: 20px auto;
     padding: 0 20px;
+    flex: 1; /* Added for sticky footer */
 }
 
 .tab-content {
@@ -137,6 +141,7 @@ main {
     color: #fff;
     padding: 10px 20px;
     margin-right: 10px;
+    margin-bottom: 10px; /* Added for spacing on mobile */
     text-decoration: none;
     border-radius: 5px;
     transition: background-color 0.3s;
@@ -227,9 +232,7 @@ footer {
     color: #fff;
     text-align: center;
     padding: 10px;
-    position: relative;
-    bottom: 0;
-    width: 100%;
+    /* Removed positioning styles for sticky footer */
 }
 
 /* Responsive Styles */
@@ -284,6 +287,24 @@ footer {
 
     .welcome-photo {
         order: -1; /* Move the photo above the text */
+        width: 150px; /* Reduced size on mobile */
+        height: 150px; /* Reduced size on mobile */
+    }
+
+    /* Adjust welcome photo image */
+    .welcome-photo img {
+        width: 100%;
+        height: 100%;
+    }
+
+    /* Adjust spacing between buttons */
+    .welcome-links .btn {
+        margin-right: 0;
+        width: 80%;
+    }
+
+    .welcome-links .btn + .btn {
+        margin-top: 10px;
     }
 
     /* Adjust carousel */
