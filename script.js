@@ -1,7 +1,9 @@
-// Tab navigation
 document.addEventListener('DOMContentLoaded', function() {
     const tabLinks = document.querySelectorAll('.tab-link');
     const tabContents = document.querySelectorAll('.tab-content');
+    const subTabLinks = document.querySelectorAll('.sub-tab-link');
+    const navToggle = document.getElementById('navToggle');
+    const navMenu = document.getElementById('navMenu');
 
     // Main tab functionality
     tabLinks.forEach(function(link) {
@@ -9,21 +11,25 @@ document.addEventListener('DOMContentLoaded', function() {
             e.preventDefault();
             const tabId = this.getAttribute('data-tab');
 
-            // Remove active class from all tab contents
+            // Remove active and loading classes
             tabContents.forEach(function(content) {
-                content.classList.remove('active');
+                content.classList.remove('active', 'loading');
             });
-
-            // Remove active class from all tab links
             tabLinks.forEach(function(link) {
                 link.classList.remove('active');
             });
 
-            // Add active class to clicked tab link and corresponding content
+            // Add 'loading' class to new content
+            const newTabContent = document.getElementById(tabId);
+            newTabContent.classList.add('active', 'loading');
             this.classList.add('active');
-            document.getElementById(tabId).classList.add('active');
 
-            // Close the mobile menu after selecting an option
+            // Simulate loading with a delay
+            setTimeout(function() {
+                newTabContent.classList.remove('loading');
+            }, 500); // 500ms delay
+
+            // Close mobile menu after selection
             if (window.innerWidth <= 768) {
                 navMenu.classList.remove('show');
             }
@@ -31,26 +37,36 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Sub-tab functionality
-    const subTabLinks = document.querySelectorAll('.sub-tab-link');
-
     subTabLinks.forEach(function(link) {
         link.addEventListener('click', function() {
             const subTabId = this.getAttribute('data-subtab');
             const parentSection = this.closest('.tab-content');
 
-            // Remove active class from all sub-tab contents within the same section
+            // Remove active classes from sub-tabs
             parentSection.querySelectorAll('.sub-tab-content').forEach(function(content) {
                 content.classList.remove('active');
             });
-
-            // Remove active class from all sub-tab links within the same section
             parentSection.querySelectorAll('.sub-tab-link').forEach(function(link) {
                 link.classList.remove('active');
             });
 
-            // Add active class to clicked sub-tab link and corresponding content
+            // Add active class to selected sub-tab
             this.classList.add('active');
             parentSection.querySelector('#' + subTabId).classList.add('active');
+        });
+    });
+
+    // Section Navigation within Career Development
+    const sectionNavButtons = document.querySelectorAll('.section-nav-btn');
+
+    sectionNavButtons.forEach(function(btn) {
+        btn.addEventListener('click', function() {
+            const targetId = this.getAttribute('data-target');
+            const targetSection = document.getElementById(targetId);
+
+            if (targetSection) {
+                targetSection.scrollIntoView({ behavior: 'smooth' });
+            }
         });
     });
 
@@ -85,10 +101,33 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Mobile Navigation Toggle
-    const navToggle = document.getElementById('navToggle');
-    const navMenu = document.getElementById('navMenu');
-
     navToggle.addEventListener('click', function() {
         navMenu.classList.toggle('show');
     });
+
+    // Fade-in on scroll effect
+    const faders = document.querySelectorAll('.fade-in');
+
+    const appearOptions = {
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px"
+    };
+
+    const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
+        entries.forEach(entry => {
+            if (!entry.isIntersecting) {
+                return;
+            } else {
+                entry.target.classList.add('appear');
+                appearOnScroll.unobserve(entry.target);
+            }
+        });
+    }, appearOptions);
+
+    faders.forEach(fader => {
+        appearOnScroll.observe(fader);
+    });
+
+    // Ensure no parallax effect on the welcome photo
+    // Removed the parallax code completely
 });
