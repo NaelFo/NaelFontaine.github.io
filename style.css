@@ -21,8 +21,6 @@ p {
     line-height: 1.6;
 }
 
-
-
 /* Header */
 header {
     background-color: #004d40;
@@ -323,11 +321,7 @@ main {
     }
 }
 
-/* Remove any image movement effect */
-.welcome-photo img {
-    width: 100%;
-    transition: none; /* Remove any transitions */
-}
+
 
 /* Sub-tabs */
 .sub-tabs {
@@ -713,20 +707,27 @@ body {
 
 /* Main content should expand to fill available space */
 main {
-    flex: 1;
-    padding-bottom: 1%;
+    padding-bottom: 50px; /* Hauteur du footer lorsqu'il occupe une ligne */
 }
+
+@media (max-width: 768px) {
+    main {
+        padding-bottom: 80px; /* Hauteur du footer lorsqu'il occupe deux lignes */
+    }
+}
+
 
 /* Styles du footer */
 footer {
     background-color: #004d40;
     color: #fff;
-    padding: 20px 0; /* Ajustement du padding */
-    width: 100%; /* Assure que le footer prend toute la largeur */
-    position: fixed; /* Ensure footer is positioned relative to its normal position */
+    padding: 15px 0; /* Ajustez les valeurs de padding si nécessaire */
+    width: 100%;
+    position: fixed;
     bottom: 0;
     left: 0;
 }
+
 
 .footer-content {
     max-width: 100%; /* Permet au contenu de prendre toute la largeur */
@@ -749,21 +750,6 @@ footer {
 .footer-contact a:hover {
     color: #53f27b; /* Changement de couleur au survol */
 }
-
-/* Assure que le footer reste en bas de la page */
-html, body {
-    height: 100%;
-}
-
-body {
-    display: flex;
-    flex-direction: column;
-}
-
-main {
-    flex: 1;
-}
-
 
 
 /* Responsive Styles */
