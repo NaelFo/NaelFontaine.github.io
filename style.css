@@ -586,6 +586,23 @@ main {
     }
 }
 
+/* Styles for the video container */
+.video-container {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    padding-top: 56.25%; /* 16:9 Aspect Ratio */
+    margin-bottom: 30px;
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    height: 100%;
+}
 /* Loading Spinner */
 .spinner {
     display: none;
